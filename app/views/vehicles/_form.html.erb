@@ -1,29 +1,40 @@
-<%= form_for(@vehicle) do |f| %>
-  <% if @vehicle.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
-
-      <ul>
-      <% @vehicle.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div class="row">
+  <%= form_for(@vehicle, :html => {:class => "col s12"}) do |f| %>
+    <% if @vehicle.errors.any? %>
+    <div class="row">
+      <div class="col s12">
+        <div class="card pink lighten-2">
+          <div class="card-content white-text">
+            <span class="card-title">
+              <%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:
+            </span>
+            <ol>
+            <% @vehicle.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ol>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :registration_number %><br>
-    <%= f.text_field :registration_number %>
-  </div>
-  <div class="field">
-    <%= f.label :color %><br>
-    <%= f.number_field :color %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <div class="row">
+      <div class="input-field col s12 l4">
+        <%= f.text_field :title, :required => "required" %>
+        <%= f.label :title %>
+      </div>
+      <div class="input-field col s12 l4">
+        <%= f.text_field :registration_number, :required => "required" %>
+        <%= f.label :registration_number %>
+      </div>
+      <div class="input-field col s12 l4" id="color_selector">
+        <div id="colorwheel"></div>
+        <%= f.text_field :color, :readonly => "readonly" %>
+      </div>
+      <div class="input-field col s12">
+        <%= f.submit %>
+      </div>
+    </div>  
+  <% end %>
+</div>

@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize
+//= require raphael
+//= require colorwheel
 //= require_tree .
