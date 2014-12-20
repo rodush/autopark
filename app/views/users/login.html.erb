@@ -1,0 +1,22 @@
+<h4>Sign In</h4>
+<div class="row">
+	<%= form_tag("/login", :method => "post", :html => {:class => "col l6 s12"}) do %>
+		<div class="row">
+			<div class="input-field col">
+				<%= text_field(:user, :login) %>
+				<%= label_tag(:user_login, "Login") %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col">
+				<%= password_field(:user, :password) %>
+				<%= label_tag(:user_password, "Password") %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col">
+				<%= submit_tag "Sign In" %>
+			</div>
+		</div>
+	<% end %>
+</div>
