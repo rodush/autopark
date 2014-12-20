@@ -33,6 +33,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'net-ldap'
+
 # bower components
 gem 'rails-assets-materialize'
 gem 'rails-assets-colorwheel'
