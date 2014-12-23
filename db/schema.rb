@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205081955) do
+ActiveRecord::Schema.define(version: 20141223204221) do
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "phone"
+    t.boolean  "has_passcard"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "skype"
+    t.decimal  "office"
+    t.string   "room"
+  end
 
   create_table "vehicles", force: true do |t|
     t.string   "title"
@@ -19,8 +30,11 @@ ActiveRecord::Schema.define(version: 20141205081955) do
     t.integer  "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "vehicle_type"
+    t.integer  "user_id"
   end
 
   add_index "vehicles", ["registration_number"], name: "index_vehicles_on_registration_number", unique: true
+  add_index "vehicles", ["user_id"], name: "index_vehicles_on_user_id"
 
 end

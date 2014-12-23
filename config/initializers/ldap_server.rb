@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'net/ldap'
+
 Autopark::Application.config.ldap = {
     :host => "10.1.1.6",
     :port => 389,

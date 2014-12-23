@@ -1,6 +1,3 @@
-require 'rubygems'
-require 'net/ldap'
-
 class UsersController < ApplicationController
 
 	def initialize
@@ -16,12 +13,13 @@ class UsersController < ApplicationController
 
 	# POST /login
 	def authorize
+		puts params[:user][:login]
 		@ldap.auth params[:user][:login], params[:user][:password]
 		if @ldap.bind
 			# TODO: Redirect to vehicles
 			redirect_to vehicles_url
 		else
-			redirect_to "/login", error: "Bad credentials provided... Please check and try again!"
+			redirect_to "/login", :alert => "Bad credentials provided... Please check and try again!"
 		end
 	end
 

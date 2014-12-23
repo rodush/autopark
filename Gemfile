@@ -34,6 +34,10 @@ group :doc do
 end
 
 gem 'net-ldap'
+gem 'devise'
+gem 'roo'
+gem 'spreadsheet', '~> 1.0.0'
+gem 'iconv'
 
 # bower components
 gem 'rails-assets-materialize'
