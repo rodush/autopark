@@ -59,6 +59,7 @@ namespace :vehicles do
 
   		user = User.find_by_username(username) || User.new
   		user.username= username
+      user.full_name= user_full_name
   		user.phone= user_phone
   		user.skype= user_skype
   		user.office= user_office
